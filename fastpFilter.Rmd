@@ -16,39 +16,59 @@ The short read filter tool fastp can can be used for extracting UMIs (unique mol
 Some sequence libraries created for eDNA can use this functionality to effeciently parse tags from the start of reads and hence extract tags from the beginning of reads and add the tag to the name of the reads.
 
 ```{bash}
- fastp -i P8111_1001_S1_L001_R1_001.fastq.gz
-  -I P8111_1001_S1_L001_R2_001.fastq.gz
-  -o P8111_1001_S1_L001_R1_001_fastp1.fastq.gz
-  -O P8111_1001_S1_L001_R2_001_fastp1.fastq.gz
-  -A -Q -L -U --umi_loc=read1 --umi_len=8
+fastp -i P8111_1001_S1_L001_R1_001.fastq.gz -I P8111_1001_S1_L001_R2_001.fastq.gz -o P8111_1001_S1_L001_R1_001_fastp1.fastq.gz -O P8111_1001_S1_L001_R2_001_fastp1.fastq.gz -A -Q -L -U --umi_loc=read1 --umi_len=8
 
- fastp -i P8111_1001_S1_L001_R1_001_fastp1.fastq.gz
-  -I P8111_1001_S1_L001_R2_001_fastp1.fastq.gz
-  -o P8111_1001_S1_L001_R1_001_fastp2.fastq.gz
-  -O P8111_1001_S1_L001_R2_001_fastp2.fastq.gz
-  -A -Q -L -U --umi_loc=read2 --umi_len=8
+fastp -i P8111_1001_S1_L001_R1_001_fastp1.fastq.gz -I P8111_1001_S1_L001_R2_001_fastp1.fastq.gz -o P8111_1001_S1_L001_R1_001_fastp2.fastq.gz -O P8111_1001_S1_L001_R2_001_fastp2.fastq.gz -A -Q -L -U --umi_loc=read2 --umi_len=8
 
 ```
 
 
+This will move the start of both the forward and reverse reads to the name of the reads. The read names will after this contain:
 
+tagForward:tagReverse in the names of both the forward and reverse reads
 
+## Cutadapt
+Using cutadapt reads are retained only if the contain the forward and reverse amplification primer. We also trim these from the reads hence leaving only actual sequence data of interest for each read.
 
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{bash}
+cutadapt -a RGACGAGAAGACCCTATARA...TACYTTAGGGATAACAGCGT -A ACGCTGTTATCCCTAARGTA...TYTATAGGGTCTTCTCGTCY --discard-untrimmed -o out.1.fastq.gz -p out.2.fastq.gz P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R1_001_test2.fastq.gz P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R2_001_test2.fastq.gz -m 50
 ```
 
-## Including Plots
+We hence now have new fastq files with forward and reverse reads that should only harbor the sequence of interest and have tags as part of their read names.
+We can import this into R using the ShortRead package and then look at the tags obtained in the sequence runs.
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+library(ShortRead)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+sampler <- FastqSampler('/Users/thokall/Soil/out.1.2.fastq.gz',
+			  100000)
+  set.seed(13) # for consistency in evaluation of procedures
+  read1 <- yield(sampler)
+
+```
+
+
+```{r}
+trimFilter <- function(fq1, fq2, tags, destination = "out") {
+  ## open input stream
+  #stream <- open(FastqStreamer(fl))
+  stream_R1 <- ShortRead::FastqStreamer(fq1)
+  stream_R2 <- ShortRead::FastqStreamer(fq2)
+  on.exit(close(stream_R1))
+  on.exit(close(stream_R2), add = TRUE)
+  #on.exit(close(stream))
+  repeat {
+    ## input chunk
+    fq_R1 <- yield(stream_R1)
+    fq_R2 <- yield(stream_R2)
+    if (length(fq_R1) == 0)
+      break
+    sel <- grepl(tags, ShortRead::id(fq_R1))
+    writeFastq(fq_R1[sel], file = gsub("../Soil", replacement = "../Soil/out", x = fq1, fixed = TRUE), mode = "a")
+    writeFastq(fq_R2[sel], file = gsub("../Soil", replacement = "../Soil/out", x = fq2, fixed = TRUE), mode = "a")
+    
+  }
+}
+```
