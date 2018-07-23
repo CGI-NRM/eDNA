@@ -1,0 +1,54 @@
+---
+title: "Fastp"
+author: "Thomas Källman"
+date: "7/23/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Fastp
+
+The short read filter tool fastp can can be used for extracting UMIs (unique molecular identifiers) that are part of many single cell or RNA-seq data sets and allow for removing PCR artifacts etc as all sequences will start with a short unique signature tag.
+
+Some sequence libraries created for eDNA can use this functionality to effeciently parse tags from the start of reads and hence extract tags from the beginning of reads and add the tag to the name of the reads.
+
+```{bash}
+ fastp -i P8111_1001_S1_L001_R1_001.fastq.gz
+  -I P8111_1001_S1_L001_R2_001.fastq.gz
+  -o P8111_1001_S1_L001_R1_001_fastp1.fastq.gz
+  -O P8111_1001_S1_L001_R2_001_fastp1.fastq.gz
+  -A -Q -L -U --umi_loc=read1 --umi_len=8
+
+ fastp -i P8111_1001_S1_L001_R1_001_fastp1.fastq.gz
+  -I P8111_1001_S1_L001_R2_001_fastp1.fastq.gz
+  -o P8111_1001_S1_L001_R1_001_fastp2.fastq.gz
+  -O P8111_1001_S1_L001_R2_001_fastp2.fastq.gz
+  -A -Q -L -U --umi_loc=read2 --umi_len=8
+
+```
+
+
+
+
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
