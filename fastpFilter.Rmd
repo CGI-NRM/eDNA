@@ -15,60 +15,426 @@ The short read filter tool fastp can can be used for extracting UMIs (unique mol
 
 Some sequence libraries created for eDNA can use this functionality to effeciently parse tags from the start of reads and hence extract tags from the beginning of reads and add the tag to the name of the reads.
 
-```{bash}
-fastp -i P8111_1001_S1_L001_R1_001.fastq.gz -I P8111_1001_S1_L001_R2_001.fastq.gz -o P8111_1001_S1_L001_R1_001_fastp1.fastq.gz -O P8111_1001_S1_L001_R2_001_fastp1.fastq.gz -A -Q -L -U --umi_loc=read1 --umi_len=8
+### Insects
+```{bash echo=TRUE}
+fastp -i /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R1_001.fastq.gz -I /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R2_001.fastq.gz -o /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R1_001_fastp1.fastq.gz -O /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R2_001_fastp1.fastq.gz -A -Q -L -U --umi_loc=read1 --umi_len=8
 
-fastp -i P8111_1001_S1_L001_R1_001_fastp1.fastq.gz -I P8111_1001_S1_L001_R2_001_fastp1.fastq.gz -o P8111_1001_S1_L001_R1_001_fastp2.fastq.gz -O P8111_1001_S1_L001_R2_001_fastp2.fastq.gz -A -Q -L -U --umi_loc=read2 --umi_len=8
+fastp -i /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R1_001_fastp1.fastq.gz -I /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R2_001_fastp1.fastq.gz -o /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R1_001_fastp2.fastq.gz -O /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R2_001_fastp2.fastq.gz -A -Q -L -U --umi_loc=read2 --umi_len=8
 
 ```
 
+### Eukaryote
+```{bash echo=TRUE}
+fastp -i /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R1_001.fastq.gz -I /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R2_001.fastq.gz -o /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R1_001_fastp1.fastq.gz -O /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R2_001_fastp1.fastq.gz -A -Q -L -U --umi_loc=read1 --umi_len=8
+
+fastp -i /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R1_001_fastp1.fastq.gz -I /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R2_001_fastp1.fastq.gz -o /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R1_001_fastp2.fastq.gz -O /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R2_001_fastp2.fastq.gz -A -Q -L -U --umi_loc=read2 --umi_len=8
+
+```
+
+### Plants
+```{bash echo=TRUE}
+fastp -i /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R1_001.fastq.gz -I /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R2_001.fastq.gz -o /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R1_001_fastp1.fastq.gz -O /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R2_001_fastp1.fastq.gz -A -Q -L -U --umi_loc=read1 --umi_len=8
+
+fastp -i /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R1_001_fastp1.fastq.gz -I /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R2_001_fastp1.fastq.gz -o /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R1_001_fastp2.fastq.gz -O /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R2_001_fastp2.fastq.gz -A -Q -L -U --umi_loc=read2 --umi_len=8
+
+```
+
+### Bacteria
+```{bash echo=TRUE}
+fastp -i /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R1_001.fastq.gz -I /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R2_001.fastq.gz -o /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R1_001_fastp1.fastq.gz -O /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R2_001_fastp1.fastq.gz -A -Q -L -U --umi_loc=read1 --umi_len=8
+
+fastp -i /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R1_001_fastp1.fastq.gz -I /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R2_001_fastp1.fastq.gz -o /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R1_001_fastp2.fastq.gz -O /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R2_001_fastp2.fastq.gz -A -Q -L -U --umi_loc=read2 --umi_len=8
+
+```
 
 This will move the start of both the forward and reverse reads to the name of the reads. The read names will after this contain:
 
-tagForward:tagReverse in the names of both the forward and reverse reads
+tagForward:tagReverse in the names of both the forward and reverse reads. This facilitates easy extraction of reads belonging to certain libraries.
+
 
 ## Cutadapt
-Using cutadapt reads are retained only if the contain the forward and reverse amplification primer. We also trim these from the reads hence leaving only actual sequence data of interest for each read.
+Using cutadapt reads are retained only if the contain the forward and reverse amplification primer. We also trim these from the reads hence leaving only actual sequence data of interest for each read. Since there at times are large fractions of reads with only adapter sequence it is beneficial to retain only reads with both forward and reverse amplification primers in them. Note that the we run this twice to identify both fragments that are sequenced in forward and reverse order. We alse remove any reads with N within the sequence (requirement for dada2) and remove anything that after filtering is shorter than 50bp
 
+### Insects
 ```{bash}
-cutadapt -a RGACGAGAAGACCCTATARA...TACYTTAGGGATAACAGCGT -A ACGCTGTTATCCCTAARGTA...TYTATAGGGTCTTCTCGTCY --discard-untrimmed -o out.1.fastq.gz -p out.2.fastq.gz P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R1_001_test2.fastq.gz P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R2_001_test2.fastq.gz -m 50
+cutadapt -a RGACGAGAAGACCCTATARA...TACYTTAGGGATAACAGCGT -A ACGCTGTTATCCCTAARGTA...TYTATAGGGTCTTCTCGTCY --discard-untrimmed -o P8111_1001F_out.1.fastq.gz -p P8111_1001F_out.2.fastq.gz /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R1_001_fastp2.fastq.gz /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R2_001_fastp2.fastq.gz -m 50 --max-n=0
+
+cutadapt -A RGACGAGAAGACCCTATARA...TACYTTAGGGATAACAGCGT -a ACGCTGTTATCCCTAARGTA...TYTATAGGGTCTTCTCGTCY --discard-untrimmed -o P8111_1001R_out.1.fastq.gz -p P8111_1001R_out.2.fastq.gz /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R1_001_fastp2.fastq.gz /Users/thokall/Soil/P8111_1001/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1001_S1_L001_R2_001_fastp2.fastq.gz -m 50 --max-n=0
+
 ```
 
+### Eukaryotes
+```{bash}
+cutadapt -a GTACACACCGCCCGTC...GTAGGTGAACCTGCAGAAGGATCA -A TGATCCTTCTGCAGGTTCACCTAC...GACGGGCGGTGTGTAC --discard-untrimmed -o P8111_1002F_out.1.fastq.gz -p P8111_1002F_out.2.fastq.gz /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R1_001_fastp2.fastq.gz /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R2_001_fastp2.fastq.gz -m 50 --max-n=0
+
+cutadapt -A GTACACACCGCCCGTC...GTAGGTGAACCTGCAGAAGGATCA -a TGATCCTTCTGCAGGTTCACCTAC...GACGGGCGGTGTGTAC --discard-untrimmed -o P8111_1002R_out.1.fastq.gz -p P8111_1002R_out.2.fastq.gz /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R1_001_fastp2.fastq.gz /Users/thokall/Soil/P8111_1002/02-FASTQ/170519_M01548_0122_000000000-B5F5V/P8111_1002_S2_L001_R2_001_fastp2.fastq.gz -m 50 --max-n=0
+```
+
+### Plants
+```{bash}
+cutadapt -a GGGCAATCCTGAGCCAA...GATAGGTGCAGAGACTCAATGG -A CCATTGAGTCTCTGCACCTATC...TTGGCTCAGGATTGCCC --discard-untrimmed -o P8111_1003F_out.1.fastq.gz -p P8111_1003F_out.2.fastq.gz /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R1_001_fastp2.fastq.gz /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R2_001_fastp2.fastq.gz -m 9 --max-n=0
+
+cutadapt -A GGGCAATCCTGAGCCAA...GATAGGTGCAGAGACTCAATGG -a CCATTGAGTCTCTGCACCTATC...TTGGCTCAGGATTGCCC --discard-untrimmed -o P8111_1003R_out.1.fastq.gz -p P8111_1003R_out.2.fastq.gz /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R1_001_fastp2.fastq.gz /Users/thokall/Soil/P8111_1003/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1003_S1_L001_R2_001_fastp2.fastq.gz -m 9 --max-n=0
+```
+
+### Bacteria
+```{bash}
+cutadapt -a CCTACGGGAGGCAGCAG...CCAGCAGCCGCGGTAAT -A ATTACCGCGGCTGCTGG...CTGCTGCCTCCCGTAGG --discard-untrimmed -o P8111_1004F_out.1.fastq.gz -p P8111_1004F_out.2.fastq.gz /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R1_001_fastp2.fastq.gz /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R2_001_fastp2.fastq.gz -m 50 --max-n=0
+
+cutadapt -A CCTACGGGAGGCAGCAG...CCAGCAGCCGCGGTAAT -a ATTACCGCGGCTGCTGG...CTGCTGCCTCCCGTAGG --discard-untrimmed -o P8111_1004R_out.1.fastq.gz -p P8111_1004R_out.2.fastq.gz /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R1_001_fastp2.fastq.gz /Users/thokall/Soil/P8111_1004/02-FASTQ/170522_M01320_0129_000000000-B5G6J/P8111_1004_S2_L001_R2_001_fastp2.fastq.gz -m 50 --max-n=0
+```
+
+
+## Re-order and dada2
 We hence now have new fastq files with forward and reverse reads that should only harbor the sequence of interest and have tags as part of their read names.
-We can import this into R using the ShortRead package and then look at the tags obtained in the sequence runs.
+We can import this into R using the ShortRead package and then sort reads to prepare them for the dada2 analysis.
 
 ```{r}
 library(ShortRead)
 ```
 
-```{r}
-sampler <- FastqSampler('/Users/thokall/Soil/out.1.2.fastq.gz',
-			  100000)
-  set.seed(13) # for consistency in evaluation of procedures
-  read1 <- yield(sampler)
+From the short read package we create a function that demultiplex the data and stores every tag combo as separate pair-end read files. Note for this to work the UMI extraction above needs to have been done as the tags need to be part of the name. The function can be run either ones for each tags or if one imports all the tags one can use lapply to create all files in one go. Note that the forward and reverse reads are handled differently so that the reads that are inserted with the second amplification primer in the 5´ end of the library are reverse complemented and appended to the output from the forward reads. We hence go from having pair-end forward and reverse reads (four files for each sample) to having one pair of reads with all data in the same direction. The data should then be suitable for analysis with the dada2 pipeline. 
 
-```
+NB! Both of these functions append reads to existing files so if one is unsure it is safest to make sure that the speciesGroup argument to the function does not correspond to an already existing folder in you working directory. The functions are not yet optimized for performance and hence can take some time to run, especially if the number of tags are high. In future functions these two functions will be replaced by a single function, that can use more than one thread and that minimize the number of times the fastq files need to be read.
+
 
 
 ```{r}
-trimFilter <- function(fq1, fq2, tags, destination = "out") {
+trimFilter <- function(fq1, fq2, tags, speciesGroup) {
   ## open input stream
   #stream <- open(FastqStreamer(fl))
+  outdir <- gsub(":", replacement = "_", tags)
+  if (!dir.exists(speciesGroup)) {
+    dir.create(speciesGroup)
+  }
+  wd <- getwd()
   stream_R1 <- ShortRead::FastqStreamer(fq1)
   stream_R2 <- ShortRead::FastqStreamer(fq2)
   on.exit(close(stream_R1))
   on.exit(close(stream_R2), add = TRUE)
   #on.exit(close(stream))
-  repeat {
+  count <- 0
+  while (length(fq_R1 <- yield(stream_R1))) {
     ## input chunk
-    fq_R1 <- yield(stream_R1)
+    #fq_R1 <- yield(stream_R1)
     fq_R2 <- yield(stream_R2)
-    if (length(fq_R1) == 0)
-      break
+    #if (length(fq_R1) == 0)
+    #  break
     sel <- grepl(tags, ShortRead::id(fq_R1))
-    writeFastq(fq_R1[sel], file = gsub("../Soil", replacement = "../Soil/out", x = fq1, fixed = TRUE), mode = "a")
-    writeFastq(fq_R2[sel], file = gsub("../Soil", replacement = "../Soil/out", x = fq2, fixed = TRUE), mode = "a")
-    
+    nameFq1 <- paste(outdir, basename(fq1), sep = "_")
+    nameFq2 <- paste(outdir, basename(fq2), sep = "_")
+    writeFastq(fq_R1[sel], file = paste(wd, speciesGroup, nameFq1, sep = "/"), mode = "a")
+    writeFastq(fq_R2[sel], file = paste(wd, speciesGroup, nameFq2, sep = "/"), mode = "a")
+    #print(tags)
+    count <- table(sel)[2] + count
+    #count <- count + table(sel)[2]
+    names(count) <- tags
   }
+  return(count)
+}
+
+
+trimFilterR <- function(fq1, fq2, tags, speciesGroup) {
+  ## open input stream
+  #stream <- open(FastqStreamer(fl))
+  outdir <- gsub(":", replacement = "_", tags)
+  outdir <- paste(unlist(base::strsplit(outdir, "_"))[2:1], sep = "_", collapse="_")
+  wd <- getwd()
+  stream_R1 <- ShortRead::FastqStreamer(fq1)
+  stream_R2 <- ShortRead::FastqStreamer(fq2)
+  on.exit(close(stream_R1))
+  on.exit(close(stream_R2), add = TRUE)
+  #on.exit(close(stream))
+  count <- 0
+  while (length(fq_R1 <- yield(stream_R1))) {
+    ## input chunk
+    # fq_R1 <- yield(stream_R1)
+    fq_R2 <- yield(stream_R2)
+    #if (length(fq_R1) == 0)
+    #  break
+    sel <- grepl(tags, ShortRead::id(fq_R1))
+    nameFq1 <- paste(outdir, basename(fq1), sep = "_")
+    nameFq2 <- paste(outdir, basename(fq2), sep = "_")
+    nameFq1 <- gsub("R_out", "F_out", nameFq1)
+    nameFq2 <- gsub("R_out", "F_out", nameFq2)
+    writeFastq(reverseComplement(fq_R1[sel]), file = paste(wd, speciesGroup, nameFq1, sep = "/"), mode = "a")
+    writeFastq(reverseComplement(fq_R2[sel]), file = paste(wd, speciesGroup, nameFq2, sep = "/"), mode = "a")
+    count <- count + table(sel)[2]
+    names(count) <- tags
+  }
+  return(count)
 }
 ```
+
+Hence to start the filtering we import the tags that have been used in the experiment and then we run the function using lapply. This will create a folder for every tag combo and write the corresponding forward and reverse reads within the folders.
+
+We import the tags from a excel sheet with tag information.
+
+```{r}
+library(readxl)
+tagsInsect <- read_excel("~/Soil/InsectsTags.xlsx")
+usedTags <- expand.grid(tagsInsect$Forward, tagsInsect$Reverse[1:4])
+usedTagsPlants <- expand.grid(tagsInsect$Forward, tagsInsect$Reverse[c(1,4:6)])
+
+tagsForward <- paste(usedTags$Var1, usedTags$Var2, sep = ":")
+tagsReverse <- paste(usedTags$Var2, usedTags$Var1, sep = ":")
+tagsForwardPlants <- paste(usedTagsPlants$Var1, usedTagsPlants$Var2, sep = ":")
+tagsReversePlants <- paste(usedTagsPlants$Var2, usedTagsPlants$Var1, sep = ":")
+
+```
+
+### Insects
+
+```{r}
+lapply(tagsForward, function(x) trimFilter(fq1 = "P8111_1001F_out.1.fastq.gz", fq2 = "P8111_1001F_out.2.fastq.gz", speciesGroup = "Insects", x))
+lapply(tagsReverse, function(x) trimFilterR(fq1 = "P8111_1001R_out.1.fastq.gz", fq2 = "P8111_1001R_out.2.fastq.gz", speciesGroup = "Insects", x))
+```
+
+### Eukaryotes
+
+```{r}
+lapply(tagsForward, function(x) trimFilter(fq1 = "P8111_1002F_out.1.fastq.gz", fq2 = "P8111_1002F_out.2.fastq.gz", speciesGroup = "Eukaryotes", x))
+lapply(tagsReverse, function(x) trimFilterR(fq1 = "P8111_1002R_out.1.fastq.gz", fq2 = "P8111_1002R_out.2.fastq.gz", speciesGroup = "Eukaryotes",x))
+```
+
+### Plants
+
+```{r}
+lapply(tagsForwardPlants, function(x) trimFilter(fq1 = "P8111_1003F_out.1.fastq.gz", fq2 = "P8111_1003F_out.2.fastq.gz", speciesGroup = "Plants", x))
+lapply(tagsReversePlants, function(x) trimFilterR(fq1 = "P8111_1003R_out.1.fastq.gz", fq2 = "P8111_1003R_out.2.fastq.gz", speciesGroup = "Plants", x))
+```
+
+### Bacteria
+```{r}
+lapply(tagsForward, function(x) trimFilter(fq1 = "P8111_1004F_out.1.fastq.gz", fq2 = "P8111_1004F_out.2.fastq.gz", speciesGroup = "Bacteria", x))
+lapply(tagsReverse, function(x) trimFilterR(fq1 = "P8111_1004R_out.1.fastq.gz", fq2 = "P8111_1004R_out.2.fastq.gz", speciesGroup = "Bacteria", x))
+```
+
+
+The files in the different directories is now ready to be used in the dada2 pipeline as they contain only "biological" sequences and no adapters/primers or tags.
+
+## Dada2
+The dada2 pipeline can be run on all the files in one go, keeping the results from individual sequences separate.s
+
+```{r}
+library(dada2)
+fqFiles <- function(group, fileEnding, forward = TRUE, fileCounts) {
+  fq <- list.files(group, pattern = fileEnding, recursive = TRUE, full.names = TRUE)
+  if (forward) {
+    forward <- fq[grepl(pattern = "out.1", x = fq)][1:fileCounts]
+    return(forward)
+  } else {
+      reverse <- fq[grepl(pattern = "out.2", x = fq)][1:fileCounts]
+      return(reverse)
+  }
+}
+
+forwardInsects <- fqFiles("Insects", "*.fastq.gz", fileCounts = 32)
+reverseInsects <- fqFiles("Insects", "*.fastq.gz", forward = FALSE, fileCounts = 32)
+
+forwardEukaryotes <- fqFiles("Eukaryotes", "*.fastq.gz", fileCounts = 32)
+reverseEukaryotes <- fqFiles("Eukaryotes", "*.fastq.gz", forward = FALSE, fileCounts = 32)
+
+forwardPlants <- fqFiles("Plants", "*.fastq.gz", fileCounts = 32)
+reversePlants <- fqFiles("Plants", "*.fastq.gz", forward = FALSE, fileCounts = 32)
+
+forwardBacteria <- fqFiles("Bacteria", "*.fastq.gz", fileCounts = 32)
+reverseBacteria <- fqFiles("Bacteria", "*.fastq.gz", forward = FALSE, fileCounts = 32)
+
+```
+
+Create the sequence table which contains the final data set.
+
+## Dada2 parser function
+
+This functions takes care of most of the dada2 steps and makes it easy to run for multiple groups of organisms.
+
+```{r}
+dadaAnalysis <- function(forward, reverse) {
+  errF <- dada2::learnErrors(forward, multithread = TRUE)
+  errR <- dada2::learnErrors(reverse, multithread = TRUE)
+  derepsF <- dada2::derepFastq(forward)
+  derepsR <- dada2::derepFastq(reverse)
+  dadaF <- dada(derepsF, err = errF, multithread = TRUE)
+  dadaR <- dada(derepsR, err = errR, multithread = TRUE)
+  mergers <- mergePairs(dadaF, derepsF, dadaR, derepsR, verbose = TRUE)
+  seqtab <- makeSequenceTable(mergers)
+  seqtab.nochim <- removeBimeraDenovo(seqtab, method = "consensus", multithread = TRUE, verbose = TRUE)
+  return(seqtab.nochim)
+}
+
+```
+
+### Insects
+```{r}
+insects.counts <- dadaAnalysis(forward = forwardInsects, reverse = reverseInsects)
+
+```
+
+### Eukaryotes
+
+```{r}
+euk.counts <- dadaAnalysis(forward = forwardEukaryotes, reverse = reverseEukaryotes)
+
+```
+
+### Plants
+```{r}
+plants.counts <- dadaAnalysis(forward = forwardPlants, reverse = reversePlants)
+
+```
+
+
+### Bacteria
+```{r}
+bacteria.counts <- dadaAnalysis(forward = forwardBacteria, reverse = reverseBacteria)
+
+
+```
+
+We can then convert the resulting matrix to a dataframe and transpose it so that samples are by column and sequences by row. At the same time we omit the unused tags so that only actual data are retainend in the downstream steps. Converting to a DGELists makes makes some convience functions and summaries available. Note that one should not use the edgeR package functionality for looking at significance differences among groups as it is not designed for this type of data, but instead for count based expression data. 
+
+
+
+```{r}
+library(readxl)
+library(edgeR)
+libnamesPlants <- read_excel("~/Soil/Tag_to_name.xlsx", sheet = "Plants")
+df.plants <- as.data.frame(t(plants.counts))
+colnames(df.plants) <- libnamesPlants$Sample
+df.plants <- df.plants[,!grepl("Not_used", colnames(df.plants))]
+y.plants <- DGEList(counts = df.plants)
+y.plants$samples$group <- libnamesPlants$Year[!grepl("Not_used",libnamesPlants$Sample)]
+
+libnames <- read_excel("~/Soil/Tag_to_name.xlsx", sheet = "Bacteria")
+df.bac <- as.data.frame(t(bacteria.counts))
+colnames(df.bac) <- libnames$Sample
+df.bac <- df.bac[,!grepl("Not_used", colnames(df.bac))]
+y.bac <- DGEList(counts = df.bac)
+
+df.euk <- as.data.frame(t(euk.counts))
+colnames(df.euk) <- libnames$Sample
+df.euk <- df.euk[,!grepl("Not_used", colnames(df.euk))]
+y.euk <- DGEList(counts = df.euk)
+
+df.insects <- as.data.frame(t(insects.counts))
+colnames(df.insects) <- libnames$Sample
+df.insects <- df.insects[,!grepl("Not_used", colnames(df.insects))]
+y.insects <- DGEList(counts = df.insects)
+
+
+
+
+```
+
+
+```{r}
+dadaFsBac <- dada(derepFsBac, err=errFBac, multithread=TRUE)
+dadaRsBac <- dada(derepRsBac, err=errRBac, multithread=TRUE)
+```
+
+```{r}
+mergersBac <- mergePairs(dadaFsBac, derepFsBac, dadaRsBac, derepRsBac, verbose=TRUE)
+```
+
+```{r}
+seqtabBac <- makeSequenceTable(mergersBac)
+seqtab.nochimBac <- removeBimeraDenovo(seqtab, method="consensus", multithread=TRUE, verbose=TRUE)
+dim(seqtab.nochimBac)
+```
+
+Convert library names to actual samples by importing metadata info from file. Note that the order is the same as the seqtab.nochim matrix. To make it easier to retain column and row names when subsetting the original matrix is transposed (sample in columns) and sequence counts in rows.
+
+```{r}
+library(readxl)
+libnames <- read_excel("~/Soil/Tag_to_name.xlsx")
+df.bac <- as.data.frame(t(seqtab.nochimBac))
+colnames(df.bac) <- libnames$Sample
+
+```
+The dataframe now contains the counts from all identified sequences. To save the sequences as fasta files we add a number, convert them to a DNAstringset and export with the writeXStringSet function. 
+
+```{r}
+library(Biostrings)
+exportFa <- function(count_data, filename) {
+  seqs <- row.names(count_data)
+  names(seqs) <- paste("Seq", 1:length(seqs), sep = "_")
+  writeXStringSet(DNAStringSet(seqs, use.names = TRUE), filename)
+  sprintf("Wrote %s sequences to %s", length(seqs), filename) 
+}
+
+
+```
+
+
+```{r}
+exportFa(y.insects, "InsectsAll.fa")
+exportFa(y.euk, "EukAll.fa")
+exportFa(y.plants, "PlantsAll.fa")
+exportFa(y.bac, "BacteriaAll.fa")
+
+```
+
+
+```{r}
+seqsbac <- DNA
+
+```
+
+
+
+```{r}
+seqs.plants <- row.names(y.plants)
+names(seqs.plants) <- paste("Seq", 1:length(seqs.plants), sep = "_")
+writeXStringSet(DNAStringSet(seqs.plants, use.names = TRUE), "PlantsAll.fa")
+
+```
+
+The created fasta files can then be compared to suitable databases to get putative species that the sequence come from.
+
+```{bash eval=false}
+blastn -query /Volumes/Lacie/PlantsAll.fa -db nt -out Plant.out -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames scomnames" -max_target_seqs 5 -num_threads 4
+```
+
+
+The output from this function contains up to 5 high similarity sequences per species as well as a bunch of information on how similar the query and target sequences are. Key statistics to look at is the pident which is the procent of basepairs that are identical and evalue that is a measure of how likely one is to find such a good hit given the size of the database. 
+
+
+```{r}
+library(taxize)
+library(gtools)
+readRenviron("~/.Renviron")
+
+genes.insects <- data.frame(id = paste("Seq", 1:length(rownames(y.insects)), sep = "_"), seq = row.names(y.insects))
+annot.insects <- read.table("/Volumes/Lacie/blast/Insects.out", sep = "\t", quote = "")
+annot.un.insects <- annot.insects[!duplicated(annot.insects$V1),]
+InsectTaxonomy <- tax_name(query = levels(annot.insects$V14), get = c("superkingdom", "phylum", "order", "class", "family"), db = "ncbi")
+annot.un.insects <- merge(annot.un.insects, InsectTaxonomy, by.x = "V14", by.y = "query", all.x = TRUE)
+annot.un.insects <- annot.un.insects[,c(2,3,4,12, 1, 17:21)]
+colnames(annot.un.insects) <- c("id", "besthit", "identity", "e-value", "species", "superkingdom", "phylum", "order", "class", "family")
+genes.insects <- merge(genes.insects, annot.un.insects, by.x = "id", by.y = "id", all.x = TRUE)
+genes.insects$id <- as.character(genes.insects$id)
+genes.insects <- genes.insects[mixedorder(genes.insects$id),]
+genes.insects$superkingdom <- factor(genes.insects$superkingdom)
+genes.insects$phylum <- factor(genes.insects$phylum)
+genes.insects$order <- factor(genes.insects$order)
+genes.insects$class <- factor(genes.insects$class)
+genes.insects$family <- factor(genes.insects$family)
+
+genes.insects$superkingdom <- droplevels(genes.insects$superkingdom)
+genes.insects$phylum <- droplevels(genes.insects$phylum)
+genes.insects$order <- droplevels(genes.insects$order)
+genes.insects$class <- droplevels(genes.insects$class)
+genes.insects$family <- droplevels(genes.insects$family)
+
+```
+
+
+
+
+
+
+
+
+
+

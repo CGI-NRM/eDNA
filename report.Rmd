@@ -1,0 +1,89 @@
+---
+title: "Report"
+author: "Thomas Källman"
+date: "7/26/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Bakgrund
+eDNA har under de senaste 5 åren dykt upp som en möjlig metod i miljövervakning. I dagsläget används två huvudsakliga metoder för eDNA analys. Den ena metoden använder qPCR (quantitative PCR) för att detektera DNA från arter som man på förhand är intresserad av. Denna typ av analys är enkel och snabb åtminstone för arter där det finns utvecklade och välfungerande markörer. Nackdelen med metoden är att det blir kostsam om det är många arter som man vill titta på samt att man på förhand måste bestämma vilka arter man är intresserade av. 
+
+Den andra metoden använder sig av genmarkörer som fungerar för hela artgrupper och genom att man sekvenserar prover kan man efter datainsamling jämföra erhållna sekvenser med databaser och därmed få en lista på arter som fanns i provet. Detta innebär att den senare metoden ger en inblick i den biodiversitet som det finns spår av provet och därmed erhåller man mer information från denna metod i jämförelse med enartsaanalyser. För många artgrupper finns det en (eller flera) vedertagna markörgener för artbestämning från DNA. Det är dessa markörer som används vid streckkodning. För svampar används oftast en region som heter internal transcribed spacer (ITS) (Schoch et al. 2012). För bakterier är 16S mest använd, men den har begränsad upplösning (Zeigler 2017) varför man ibland ser andra gener eller helgenomsekvensering vid eDNA analys av bakterier. För att titta på gruppen eukaryota har 18S vanligen använts även den med begränsad upplösning. För växter är det mer komplicerat, det har föreslagits att fler än en markörgen behövs för att använda DNA för artbestämning (Kress et al. 2005). De föreslagna markörgenerna är maturas K (matK), rubisco large unit (rbcL), trnH-psbA. För djur är det cytokrom oxidas I (COI) som är den dominerande streckkodsgenen. Dock finns det svårigheter att använda COI för vissa organismgrupper beroende på att variation mellan arter är för liten. En av utmaningar med eDNA analys i miljöövervakning är att dessa markörgener sällan har optimala egenskaper för att användas för eDNA. En optimal gen för metagenomiska studie är tillräckligt kort för att man skall kunna amplifiera den effektivt från olika eDNA substrat, men är samtidigt lång nog att det finns tillräckligt med skillnader för att man skall kunna separera även nära besläktade arter. 
+
+För vissa artgrupper och typer av prover fungerar sekvensering och artbetstämning redan idag mycket bra, framför allt från miljöer som inte har allt för stor diversitet. Ett exempel på sådana system är att artbestämma fiskar från svenska sötvatten. Antal potentiella arter är då mindre än 50, databaserna är ganska fullständiga och flera markörgener har testats och utvärderats (referens). För flera andra organismgrupper har vi mycket mindre information om antal arter som kan förekomma i en given miljö och det finns begränsat med genetiska data som kan användas som referens och artidentifiering.
+
+I den här studien har vi extrahera DNA från jordprover av olika ålder och från olika djup under marken för att se både hur hantering av prover samt metod för DNA extraktion påverkar insamlade data. Som referens material samlades förna och mineraljord in från två olika lokaler under 2016. Dessa prover frös vid insamling och användes sedan direkt för DNA extraktion.
+
+
+De flesta föreslagna markörgenerna för streckkodning är inte optimala för metagenomiska studier av miljöDNA, framförallt på grund av de är långa. Längden på DNA-fragment av de föreslagna markörgenerna för streckkodning har sin bakgrund dels i att ha det är önskvärt med så hög upplösning som möjligt. För många metagenomiska studier och särskilt vid de tillfällen när man analyserar miljöDNA har man därför antingen använt kortare varianter av de föreslagna markörgenerna eller i vissa fall andra markörgener (Young et al. 2015). 
+
+För att undersöka om det finns tillräckligt med eDNA i olika typer av sediment och jordprover har vi testat att amplifiera flera olika taxonomiska grupper från markprover av olika djup under markytan och som sparats olika länge. En av huvudfrågorna kring studien är om man kan extrahera DNA signaler av värde från prover som samlats in till andra syften. Om dessa prover kan användas för att generera användbara DNA data skulle det innebära möjligheter att titta på organismförekomster från långa tidsserier av jordprover som finns tillgängliga från xxx programmet.
+
+## Prover
+
+
+
+Från samtliga provpunkter i tabell 1 som innehöll tillräckliga mängder DNA för att skapa sekvensbibliotek sekvenserades Bakterier, Eukaryoter, Växter och Insekter med parade Illumina MiSeq läsningar. 
+
+Tittar man till rådata var det stor variation mellan hur mycket sekvenser som erhölls från de olika organismgrupperna. För bakterier erhölls strax över två miljoner fragment, medan de för växter var nästan 20 miljoner fragment (Tabell 1). Kvalite på samtliga erhållna sekvensdata var mycket god (Figur 1). Då man i dylika studier jobbar med mycket små mängder av startmaterial får man ofta ganska stora mängder sekvenser som inte har sitt ursprung från det det som amplifierats. Pga av detta bör man vara stringent i sin kvalitetsfiltrering och endast bibehålla sekvenser som innehåller de primers som användes vid amplifiering. 
+
+
+## Erhållna sekvensdata
+
+
+
+## Filtering av data 
+eDNA prover innehåller i de allra flesta fall inte bara DNA från det man är intresserad av och försöker amplifiera utan har DNA från alla organismgrupper som finns i biotopen. I många jordprover är det till exempel mycket stora mängder DNA från bakterier och även då man fokuserar på andra organismgrupper brukar en relativt stor del av erhållet DNA komma från bakterier.
+
+För att hantera detta och säkerställa att det vi tittar på kommer från fragment som amplifierats med våra primers har vi enbart behållit fragment med perfekt matchning till de indexeringssekvenser vi använt och som innehåller de amplifieringsprimers som vi använts oss av. Det innebär att endast sekvenser med följande struktur behandlas som användbara.
+
+IndexTag1--PCRprimerF--XXX--PCRprimerR--IndexTag2 där XXX är sekvensen som använts för att avgöra vilken taxonomiska grupp som sekvensen kommer från. Prover som inte har rätt index eller som inte har PRC primersekvens utesluts från vidare analys då de mest troligt är artifakter. 
+
+I den analysmetod vi använt oss av har vi filtrerat bort alla sekvenser som inte matchar den sekvensbitar vi använt för att köra flera prover i samma sekvensering s
+
+### Generella mönster
+
+Om man tittar över alla prover oavsett ursprung erhölls de från de olika organismgrupperna olika antal sekvenser. Variation mellan prover och artgrupper likt den vi ser här är förväntat, men så länge man erhåller tio tusentals användbara sekvenser från ett prov har man tillräckligt med information för att det skall reflektera provets innehåll. Självklart kommer fler läsningar leda till bättre precision och detektering av lågfrekventa arter, men dessa bidrar i begränsad utsträckning till kunskap om provet. I många fall och för många frågor kollapsas all dessa sekvenser till unika sekvenser och används för att säga om en sekvens (= art) finns eller inte. Detta är så klart ineffektivt, men då amplifiering av DNA från milöprover än så länge ofta leder till att ursprungsfördelning inte bibehålls är det en mer rättvisande metod.
+
+För de flesta miljöövervakningsprogram idag tittar man framför allt på 
+
+### Mönster över tid
+
+### Geografiska mönster
+
+### Effekter av olika DNA extraktionsmetoder
+
+
+
+
+
+## Bakterier
+
+
+
+
+## 
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r results='asis'}
+library(knitr)
+kable(mtcars[1:5,])
+
+```
+
+## Prover
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
